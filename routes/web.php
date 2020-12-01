@@ -15,7 +15,7 @@ use App\Http\Controllers\ProjectsController;
 */
 
 Route::get('/', function () {
-    return view('Index');
+    return view('index');
 });
 
 Route::get('projects', [ProjectsController::class, 'index']);

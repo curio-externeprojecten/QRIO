@@ -9,18 +9,34 @@
     <link rel="stylesheet" href="{{asset('resources/css/style.css')}}">
     <link rel="icon" href="{{asset('resources/img/square_logo.png')}}">
 </head>
+<<<<<<< Updated upstream
 <body style="position: relative; height: 100%; width: 100%; padding-bottom: 200px; margin: 0; min-height: 100%;">
     <header class="p-4 bg-dark text-light d-flex justify-content-around">
         <h1><img src="{{asset('resources/img/logo.png')}}" style="width: 18%!important" alt=""></h1>
         <nav class="m-2 p-1 float-right">
+=======
+<body style="min-height:100%">
+    <header class="row p-4 bg-dark text-light d-flex justify-content-around">
+        <img class="row-6" src="{{asset('resources/img/logo.png')}}" alt="">
+        <nav class="m-2 p-1 row-6 float-right">
+>>>>>>> Stashed changes
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
+            
         </nav>
+        <div class="logo_banner_index col-12">
+            @yield('index_nav')
+        </div>
+            
     </header>
+<<<<<<< Updated upstream
     <main style="height: 100%; background:url({{asset('resources/img/background.png')}})">
+=======
+    <main style="background:url({{asset('resources/img/background.png')}})">
+>>>>>>> Stashed changes
         <div class="container">
             @yield("content")
         </div>
