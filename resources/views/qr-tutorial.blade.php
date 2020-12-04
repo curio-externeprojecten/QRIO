@@ -8,5 +8,7 @@ $text = "I don't wanna anymore";
 
 QRcode::png($text, $file);
 
+"INSERT INTO qr_code (qr_code)
+VALUES (:file)"
 
  ?>
