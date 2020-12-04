@@ -11,14 +11,12 @@
 </head>
 <body style="min-height:100%">
     <header class="row p-4 bg-dark text-light d-flex justify-content-around">
-        <img class="row-6" src="{{asset('resources/img/logo.png')}}" alt="">
         <nav class="m-2 p-1 row-6 float-right">
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
-            
         </nav>
         <div class="logo_banner_index col-12">
             @yield('index_nav')
