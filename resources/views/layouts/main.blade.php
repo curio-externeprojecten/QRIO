@@ -13,7 +13,9 @@
     <header class="row p-4 bg-dark text-light d-flex justify-content-around">
         <div class="logo_banner_index">
             <div class="align-middle">
-                <img src="{{asset('resources/img/QRlogo.png')}}" alt="" width="125">
+                <a href="http://qrio.test">
+                    <img src="{{asset('resources/img/QRlogo.png')}}" alt="logo" width="125">
+                </a>
             </div>
         </div>
         <nav class="m-2 p-1 row-6 float-right">
