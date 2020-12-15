@@ -15,8 +15,8 @@
             @yield('index_nav')
         </div>
         <nav class="m-2 p-1 row-6 float-right">
-            <a href="" class="mr-3">Een link</a>
-            <a href="" class="mr-3">Een link</a>
+            <a href="login" class="mr-3">Login</a>
+            <a href="register" class="mr-3">Register</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>

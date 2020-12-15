@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ Route::get('/', [MainController::class, 'index']);
 Route::get('/qr_test', [MainController::class, 'qr_test']);
 
 Route::get('projects', [ProjectsController::class, 'index']);
+
+Route::get('login', [UserController::class, 'login']);
+Route::get('register', [UserController::class, 'register']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
