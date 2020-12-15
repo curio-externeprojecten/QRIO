@@ -2,5 +2,5 @@
 
 @section('content')
     <h1>Instructie: {{ $project->name }}</h1>
-    <p>{{--To add join query for description--}}</p>
+    <p>{{ $project->text }}</p>
 @endsection

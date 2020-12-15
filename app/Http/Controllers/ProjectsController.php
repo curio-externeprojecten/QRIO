@@ -26,7 +26,12 @@ class ProjectsController extends Controller
     }
 
     public function show($id){
-        $project = Project::findOrFail($id);
+        $project = Project::findOrFail($id)
+        ->join('instructions', 'instructions.id', '=', 'project.id')
+        ->select('*')
+        ->find($id); // if you use ->get(); you will get a collection which gives error
+
+        //dd($project);
 
         return view('projects.show',[
             'project' => $project
