@@ -23,8 +23,8 @@ Route::get('/qr_test', [MainController::class, 'qr_test']);
 Route::get('projects', [ProjectsController::class, 'index']);
 Route::get('projects/{id}', [ProjectsController::class, 'show']);
 
-Route::get('login', [UserController::class, 'login']);
-Route::get('register', [UserController::class, 'register']);
+// Route::get('login', [UserController::class, 'login']);
+// Route::get('register', [UserController::class, 'register']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
