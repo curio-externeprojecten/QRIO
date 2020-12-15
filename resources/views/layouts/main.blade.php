@@ -18,8 +18,8 @@
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
-            <a href="http://qrio.me/register" class="mr-3">Register</a>
-            <a href="http://qrio.me/login" class="mr-3">Login</a>
+            <a href="http://qrio.test/register" class="mr-3">Register</a>
+            <a href="http://qrio.test/login" class="mr-3">Login</a>
         </nav>
         
             
