@@ -1,11 +1,5 @@
 @extends('layouts.main')
 
-@section('index_nav')
-    <div class="align-middle">
-        <img src="{{asset('resources/img/QRlogo.png')}}" alt="" width="125">
-    </div>
-@endsection
-
 @section('content')
     
     

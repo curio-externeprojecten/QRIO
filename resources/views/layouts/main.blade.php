@@ -12,7 +12,9 @@
 <body style="min-height:100%">
     <header class="row p-4 bg-dark text-light d-flex justify-content-around">
         <div class="logo_banner_index">
-            @yield('index_nav')
+            <div class="align-middle">
+                <img src="{{asset('resources/img/QRlogo.png')}}" alt="" width="125">
+            </div>
         </div>
         <nav class="m-2 p-1 row-6 float-right">
             <a href="" class="mr-3">Een link</a>
