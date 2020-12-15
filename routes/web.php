@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,9 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/test', function () {
-    return view('qr-tutorial');    
-});
 
+Route::get('/', [MainController::class, 'index']);
+Route::get('/qr_test', [MainController::class, 'qr_test']);
 
 Route::get('projects', [ProjectsController::class, 'index']);
 
