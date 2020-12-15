@@ -17,7 +17,7 @@
         <nav class="m-2 p-1 row-6 float-right">
             <a href="" class="mr-3">Een link</a>
             <a href="" class="mr-3">Een link</a>
-            <a href="" class="mr-3">Een link</a>
+            <a href="http://qrio.test/projects" class="mr-3">Instructies</a>
             <a href="http://qrio.test/register" class="mr-3">Register</a>
             <a href="http://qrio.test/login" class="mr-3">Login</a>
         </nav>
