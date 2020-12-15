@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class ProjectsController extends Controller
 {
@@ -22,5 +23,13 @@ class ProjectsController extends Controller
     public function add(){
         // Redirect to form
         // Handle adding project
+    }
+
+    public function show($id){
+        $project = Project::findOrFail($id);
+
+        return view('projects.show',[
+            'project' => $project
+        ]);
     }
 }
