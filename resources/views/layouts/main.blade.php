@@ -33,7 +33,7 @@
             @yield("content")
         </div>
     </main>
-    <footer class="bg-dark text-light" style="position: absolute; bottom: 0; width: 100%; height: 70px;">
+    <footer class="bg-dark text-light">
         <p class="m-3 p-2">Made by CURIO students</p>
     </footer>
 </body>
