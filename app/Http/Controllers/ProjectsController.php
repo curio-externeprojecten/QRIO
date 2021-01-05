@@ -10,7 +10,7 @@ class ProjectsController extends Controller
     public function index(){
         $projects = \DB::table('instructions')
         ->join('project', 'project.id', '=', 'instructions.project_id')
-        ->select('project.name', 'project.created_at')
+        ->select('project.name', 'project.created_at', 'project.id')
         ->get();
 
         //dd($projects);
