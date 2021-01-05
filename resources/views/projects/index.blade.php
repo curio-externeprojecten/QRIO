@@ -6,7 +6,6 @@
         @foreach ($projects as $project)
         <li class="list-group-item">
             <a href="{{route('projects.show', $project->id)}}">{{ $project->name }} Created at: {{ $project->created_at }}</a>
-            
         </li>
         @endforeach
     </ul>   
