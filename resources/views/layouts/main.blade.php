@@ -18,23 +18,45 @@
                 </a>
             </div>
         </div>
-        <nav class="m-2 p-1 row-6 float-right">
-            <a href="" class="mr-3">Een link</a>
-            <a href="" class="mr-3">Een link</a>
-            <a href="http://qrio.test/projects" class="mr-3">Instructies</a>
-            <a href="http://qrio.test/register" class="mr-3">Register</a>
-            <a href="http://qrio.test/login" class="mr-3">Login</a>
+        <nav class="m-2 p-1 row-6 float-right navbar navbar-expand-sm navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link mr-3" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="http://qrio.test/projects" class="mr-3 nav-link">Instructies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="mr-3 nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://qrio.test/register" class="mr-3 nav-link">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://qrio.test/login" class="mr-3 nav-link">Login</a>
+                    </li>
+                </ul>
+              
+            </div>
         </nav>
-        
-            
     </header>
     <main style="background:url({{asset('resources/img/background.png')}})">
         <div class="container">
             @yield("content")
         </div>
     </main>
-    <footer class="bg-dark text-light">
-        <p class="m-3 p-2">Made by CURIO students</p>
+    <footer class="site-footer bg-dark text-light ">
+        <div class="container">
+            <p class="m-3 p-2">Made by CURIO students</p>
+        </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
