@@ -31,7 +31,7 @@
                         <a href="{{ url('/instructions') }}" class="mr-3 nav-link">Instructies</a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://qrio.test/dashboard" class="mr-3 nav-link">Dashboard</a>
+                        <a href="{{url('/dashboard')}}" class="mr-3 nav-link">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a href=" {{ url('/register') }} " class="mr-3 nav-link">Register</a>
