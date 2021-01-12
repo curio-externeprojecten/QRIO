@@ -6,7 +6,8 @@
     <ul class="list-group">
         @foreach ($instructions as $instruction)
             <li class="list-group-item">
-                <a href="{{route('instructions.show', $instruction->id)}}">{{ $instruction->project->name }} Created at: {{ $instruction->created_at }}</a>
+                <a href="{{route('instructions.show', $instruction->id)}}">{{ $instruction->project->name }} Created at: {{ $instruction->created_at }}</a> 
+                <a href="{{route('instructions.images.create', $instruction->id)}}" class="btn btn-info float-right"> Voeg afbeelding toe</a>
             </li>
         @endforeach
     </ul>
