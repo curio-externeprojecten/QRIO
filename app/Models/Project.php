@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InstructionImage extends Model
+class Project extends Model
 {
     use HasFactory;
-    protected $table = 'instruction_image';
-    protected $guarded = [];
-    public $timestamps = false;
-
+    protected $table = 'project';
 
 }

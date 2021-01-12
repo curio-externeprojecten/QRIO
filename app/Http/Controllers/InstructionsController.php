@@ -4,16 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Instruction;
+use App\Models\Project;
 
 class InstructionsController extends Controller
 {
     public function index() {
-        $instructions = \DB::table('instructions')
-        ->join('project', 'project.id', '=', 'instructions.project_id')
-        ->select('project.name', 'project.created_at', 'project.id')
-        ->get();
-
-        //dd($instruction);
+        $instructions = Instruction::where('visible', '=', 1)->get();
 
         return view('instructions.index',[
             'instructions' => $instructions
@@ -21,19 +17,34 @@ class InstructionsController extends Controller
     }
 
     public function create(){
-        return view('instructions.create');
+        $projects = Project::all();
+        return view('instructions.create', [
+            'projects' => $projects
+        ]);
     }
     
     public function show($id){
-        $instruction = Instruction::findOrFail($id)
-        ->join('instructions', 'instructions.id', '=', 'project.id')
-        ->select('*')
-        ->find($id); // if you use ->get(); you will get a collection which gives error
+        $instruction = Instruction::findOrFail($id);
+        if ($instruction->visible == 1) {
+            return view('instructions.show',[
+                'instruction' => $instruction
+            ]);
+        }
+        else {
+            return redirect()->route('instructions');
+        }
+        
+    }
 
-        //dd($project);
-
-        return view('instructions.show',[
-            'instruction' => $instruction
+    public function store(Request $request) {
+        $instruction = Instruction::create([
+            'text' => $request->text,
+            'user_id' => 1,
+            'visible' => 1,
+            'project_id' => $request->project,
+            'created_at' => date("Y-m-d H-i-s")
         ]);
+
+        return redirect()->route('instructions.images.create',[ 'id' => $instruction->id]);
     }
 }
