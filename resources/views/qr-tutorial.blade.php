@@ -1,14 +1,17 @@
 <?php 
 
-require_once 'phpqrcode/qrlib.php';
+require_once 'qrlib.php';
 
-$path = 'image/';
+$path = '\image';
 $file = $path.uniqid().".png";
 $text = "I don't wanna anymore";
 
 QRcode::png($text, $file);
 
-"INSERT INTO qr_code (qr_code)
-VALUES (:file)"
+DB::table('qr_code')->insert([
+	'instructie_id' => 1,
+	'qr_code' => $file,
+]);
 
- ?>
+
+?>
