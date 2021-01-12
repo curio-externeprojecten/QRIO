@@ -8,7 +8,8 @@
             <li class="list-group-item">
                 <a href="{{route('instructions.show', $instruction->id)}}">{{ $instruction->project->name }} Created at: {{ $instruction->created_at }}</a> 
                 <a href="{{route('instructions.images.create', $instruction->id)}}" class="btn btn-info float-right">Voeg afbeelding toe</a>
-                <a href="{{route('instructions.edit', $instruction->id)}}" class="btn btn-success float-right" style="margin:0 10px;">Pas aan</a>
+                <a href="{{route('instructions.edit', $instruction->id)}}" class="btn btn-warning float-right" style="margin:0 10px;">Pas aan</a>
+                <a href="{{route('instructions.delete', $instruction->id)}}" class="btn btn-danger float-right" style="margin:0 10px;">Verwijder</a>
             </li>
         @endforeach
     </ul>

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Instruction;
+use App\Models\InstructionImage;
 use App\Models\Project;
+use App\Models\Qrcode;
 
 class InstructionsController extends Controller
 {
@@ -64,5 +66,13 @@ class InstructionsController extends Controller
         $instruction->project_id = $request->project;
         $instruction->save();
         return redirect()->route('instructions.show',[ 'id' => $id]);
+    }
+
+    public function delete($id) {
+        InstructionImage::where('instructie_id','=',$id)->delete();
+        Qrcode::where('instructie_id','=',$id)->delete();
+        Instruction::where('id','=',$id)->delete();
+
+        return redirect()->route('instructions');
     }
 }

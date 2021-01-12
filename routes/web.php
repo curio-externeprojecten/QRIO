@@ -35,6 +35,8 @@ Route::get('instructions/{id}', [InstructionsController::class, 'show'])->name('
 Route::get('instructions/edit/{id}', [InstructionsController::class, 'edit'])->name('instructions.edit');
 Route::put('instructions/edit/{id}', [InstructionsController::class, 'update'])->name('instructions.update');
 
+Route::get('instructions/delete/{id}', [InstructionsController::class, 'delete'])->name('instructions.delete');
+
 
 // Route::get('login', [UserController::class, 'login']);
 // Route::get('register', [UserController::class, 'register']);
