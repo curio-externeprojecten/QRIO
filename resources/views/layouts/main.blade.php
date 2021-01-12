@@ -31,7 +31,7 @@
                         <a href="http://qrio.test/instructions" class="mr-3 nav-link">Instructies</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="mr-3 nav-link">Projects</a>
+                        <a href="http://qrio.test/dashboard" class="mr-3 nav-link">Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a href="http://qrio.test/register" class="mr-3 nav-link">Register</a>

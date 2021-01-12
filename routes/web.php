@@ -21,6 +21,7 @@ Route::get('/', [MainController::class, 'index']);
 Route::get('/qr_test', [MainController::class, 'qr_test']);
 
 Route::get('instructions', [InstructionsController::class, 'index']);
+Route::get('instructions/create', [InstructionsController::class, 'create'])->name('instructions.create');
 Route::get('instructions/{id}', [InstructionsController::class, 'show'])->name('instructions.show');
 
 // Route::get('login', [UserController::class, 'login']);
