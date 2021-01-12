@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\InstructionsController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\UserController;
 
@@ -19,6 +19,9 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [MainController::class, 'index']);
 Route::get('/qr_test', [MainController::class, 'qr_test']);
+
+Route::get('instruction', [InstructionsController::class, 'index']);
+Route::get('instruction/{id}', [InstructionsController::class, 'show']);
 
 Route::get('projects', [ProjectsController::class, 'index']);
 Route::get('projects/{id}', [ProjectsController::class, 'show'])->name('projects.show');
