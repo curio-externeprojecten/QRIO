@@ -28,16 +28,16 @@
                         <a class="nav-link mr-3" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a href="http://qrio.test/projects" class="mr-3 nav-link">Instructies</a>
+                        <a href="{{ url('/instructions') }}" class="mr-3 nav-link">Instructies</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="mr-3 nav-link">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://qrio.test/register" class="mr-3 nav-link">Register</a>
+                        <a href=" {{ url('/register') }} " class="mr-3 nav-link">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://qrio.test/login" class="mr-3 nav-link">Login</a>
+                        <a href=" {{ url('/login') }} " class="mr-3 nav-link">Login</a>
                     </li>
                 </ul>
               
