@@ -16,6 +16,10 @@
                 @endforeach
             </select>
         </div>
+        <div class="form-group">
+            <label for="is_visible">Moet het zichtbaar zijn?</label>
+            <input type="checkbox" name="is_visible" id="is_visible" value="1">
+        </div>
         <input type="submit" value="Maak een nieuwe instructie" class="btn btn-primary">
     </form>
 @endsection
