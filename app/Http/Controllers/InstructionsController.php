@@ -20,9 +20,8 @@ class InstructionsController extends Controller
         ]);
     }
 
-    public function add(){
-        // Redirect to form
-        // Handle adding project
+    public function create(){
+        return view('instructions.create');
     }
     
     public function show($id){
