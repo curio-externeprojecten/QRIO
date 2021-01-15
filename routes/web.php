@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\InstructionsController;
 use App\Http\Controllers\InstructionImagesController;
 use App\Http\Controllers\MainController;
@@ -19,7 +20,19 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/', [MainController::class, 'index']);
-Route::get('/qr_test', [MainController::class, 'qr_test']);
+
+Route::get('qr-code', function () 
+{	
+	$qr = QRCode::text('QR Code Generator for Laravel!')->svg();
+	$file = 'public/resources/img/qr/' . $qr;
+	setOutfile($file);
+  	return $qr;    
+
+  	//	$file = asset('resources/img/qr/qrimage.svg');
+	
+//  	QRCode::text('QR Code Generator for Laravel!')->setOutfile($file);    
+
+});
 
 
 Route::get('instructions', [InstructionsController::class, 'index'])->name('instructions');

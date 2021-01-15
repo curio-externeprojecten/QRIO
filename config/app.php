@@ -79,7 +79,11 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
+    'providers' => [     
+      
+        LaravelQRCode\Providers\QRCodeServiceProvider::class,     
+  
+    ],
     'locale' => 'en',
 
     /*
@@ -228,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'QRCode' => LaravelQRCode\Facades\QRCode::class,   
     ],
 
 ];
