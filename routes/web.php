@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectsController;
-
+require __DIR__ '/../vendor\werneckbh\qr-code\src\QR-Code\Util\AbstractGenerator.php:55';
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,20 @@ use App\Http\Controllers\ProjectsController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/test', function () {
-    return view('qr-tutorial');    
-});
 
+
+Route::get('qr-code', function () 
+{	
+	$qr = QRCode::text('QR Code Generator for Laravel!')->svg();
+	$file = 'public/resources/img/qr/' . $qr;
+	setOutfile($file);
+  	return $qr;    
+
+  	//	$file = asset('resources/img/qr/qrimage.svg');
+	
+//  	QRCode::text('QR Code Generator for Laravel!')->setOutfile($file);    
+
+});
 
 Route::get('projects', [ProjectsController::class, 'index']);
 
