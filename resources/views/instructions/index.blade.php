@@ -12,7 +12,13 @@
                 <a href="{{route('instructions.edit', $instruction->id)}}" class="btn btn-warning float-right" style="margin:0 10px;">Pas aan</a>
                 <a href="{{route('instructions.delete', $instruction->id)}}" class="btn btn-danger float-right" style="margin:0 10px;">Verwijder</a>
                 @endif
+                <?php
+                $route = route('instructions.show', $instruction->id);
+                $qr = QRCode::text($route,'public/resources/img/qr/test.png')->svg();
+                ?>
             </li>
+            
+            {{$qr}}
         @endforeach
     </ul>
 @endsection
