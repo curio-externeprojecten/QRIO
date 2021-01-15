@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Instruction;
 use App\Models\InstructionImage;
 use App\Models\Project;
@@ -11,8 +12,14 @@ use App\Models\Qrcode;
 class InstructionsController extends Controller
 {
     public function index() {
-        $instructions = Instruction::all();
-        //$instructions = Instruction::where('visible', '=', 1)->get();
+        
+        $user_id = Auth::id();
+        $userInstructions = Instruction::where('user_id', '=', $user_id)->get();
+        $visibleInstructions = Instruction::where('user_id', '!=', $user_id)->where('visible', '=', 1)->get();
+        $instructions = $userInstructions;
+        foreach ($visibleInstructions as $visibleInstruction) {
+            $instructions[count($userInstructions)] = $visibleInstruction;
+        }
 
         return view('instructions.index',[
             'instructions' => $instructions
@@ -21,7 +28,7 @@ class InstructionsController extends Controller
     
     public function show($id){
         $instruction = Instruction::findOrFail($id);
-        if ($instruction->visible == 1) {
+        if ($instruction->visible == 1 || $instruction->user_id == Auth::id()) {
             return view('instructions.show',[
                 'instruction' => $instruction
             ]);
@@ -46,7 +53,7 @@ class InstructionsController extends Controller
         }
         $instruction = Instruction::create([
             'text' => $request->text,
-            'user_id' => 1,
+            'user_id' => Auth::id(),
             'visible' => $is_visible,
             'project_id' => $request->project,
             'created_at' => date("Y-m-d H-i-s")
@@ -59,10 +66,15 @@ class InstructionsController extends Controller
     public function edit($id){
         $projects = Project::all();
         $instruction = Instruction::findOrFail($id);
-        return view('instructions.edit', [
-            'instruction' => $instruction,
-            'projects' => $projects
-        ]);
+        if ($instruction->user_id == Auth::id()) {
+            return view('instructions.edit', [
+                'instruction' => $instruction,
+                'projects' => $projects
+            ]);
+        }
+        else {
+        return redirect()->route('instructions');
+        }
     }
 
     public function update(Request $request, $id) {
@@ -71,18 +83,22 @@ class InstructionsController extends Controller
             $is_visible = 0;
         }
         $instruction = Instruction::findOrFail($id);
-        $instruction->text = $request->text;
-        $instruction->project_id = $request->project;
-        $instruction->visible = $is_visible;
-        $instruction->save();
+        if (Auth::id() == $instruction->user_id) {
+            $instruction->text = $request->text;
+            $instruction->project_id = $request->project;
+            $instruction->visible = $is_visible;
+            $instruction->save();
+        }
         return redirect()->route('instructions.show',[ 'id' => $id]);
     }
 
     public function delete($id) {
-        InstructionImage::where('instructie_id','=',$id)->delete();
-        Qrcode::where('instructie_id','=',$id)->delete();
-        Instruction::where('id','=',$id)->delete();
-
+        $instruction = Instruction::findOrFail($id);
+        if (Auth::id() == $instruction->user_id) {
+            InstructionImage::where('instructie_id','=',$id)->delete();
+            Qrcode::where('instructie_id','=',$id)->delete();
+            Instruction::where('id','=',$id)->delete();
+        }
         return redirect()->route('instructions');
     }
 }
