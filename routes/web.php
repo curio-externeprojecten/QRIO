@@ -21,6 +21,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [MainController::class, 'index']);
 
+
 Route::get('qr-code', function () 
 {	
   	$file = asset('resources/img/qr/qrimage.svg');
