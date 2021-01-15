@@ -5,6 +5,10 @@
     <form action="{{ route('instructions.store') }}" method="POST">
         @csrf
         <div class="form-group">
+            <label for="title">Titel:</label>
+            <input type="text" name="title">
+        </div>
+        <div class="form-group">
             <label for="text">Text van instructie:</label>
             <textarea class="form-control" name="text" cols="30" rows="10"></textarea>
         </div>

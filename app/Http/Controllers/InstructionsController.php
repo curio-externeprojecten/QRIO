@@ -38,6 +38,19 @@ class InstructionsController extends Controller
         }
         
     }
+    
+    public function qr($id){
+        $instruction = Instruction::findOrFail($id);
+        if ($instruction->visible == 1 || $instruction->user_id == Auth::id()) {
+            return view('instructions.qr',[
+                'instruction' => $instruction
+            ]);
+        }
+        else {
+            return redirect()->route('instructions');
+        }
+        
+    }
 
     public function create(){
         $projects = Project::all();
@@ -53,6 +66,7 @@ class InstructionsController extends Controller
         }
         $instruction = Instruction::create([
             'text' => $request->text,
+            'title' => $request->title,
             'user_id' => Auth::id(),
             'visible' => $is_visible,
             'project_id' => $request->project,
@@ -85,6 +99,7 @@ class InstructionsController extends Controller
         $instruction = Instruction::findOrFail($id);
         if (Auth::id() == $instruction->user_id) {
             $instruction->text = $request->text;
+            $instruction->title = $request->title;
             $instruction->project_id = $request->project;
             $instruction->visible = $is_visible;
             $instruction->save();

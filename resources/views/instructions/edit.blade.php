@@ -6,6 +6,10 @@
         @csrf
         @method('put')
         <div class="form-group">
+            <label for="title">Titel:</label>
+            <input type="text" name="title" value="{{ $instruction->title }}">
+        </div>
+        <div class="form-group">
             <label for="text">Text van instructie:</label>
             <textarea class="form-control" name="text" cols="30" rows="10">{{ $instruction->text }}</textarea>
         </div>

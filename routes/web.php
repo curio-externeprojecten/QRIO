@@ -31,6 +31,7 @@ Route::post('instructions/image/create/{id}', [InstructionImagesController::clas
 Route::get('instructions/create', [InstructionsController::class, 'create'])->name('instructions.create');
 Route::post('instructions/create', [InstructionsController::class, 'store'])->name('instructions.store');
 
+Route::get('instructions/qr/{id}', [InstructionsController::class, 'qr'])->name('instructions.show.qr');
 Route::get('instructions/{id}', [InstructionsController::class, 'show'])->name('instructions.show');
 
 Route::get('instructions/edit/{id}', [InstructionsController::class, 'edit'])->name('instructions.edit');
