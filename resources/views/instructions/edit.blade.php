@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="is_visible">Moet het zichtbaar zijn?</label>
-            <input type="checkbox" name="is_visible" id="is_visible" value="1" @if ($instruction->visible == 1) selected @endif>
+            <input type="checkbox" name="is_visible" id="is_visible" value="1" @if ($instruction->visible == 1) checked @endif>
         </div>
         <input type="submit" value="Update de instructie" class="btn btn-primary">
     </form>
