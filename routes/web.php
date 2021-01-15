@@ -22,15 +22,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', [MainController::class, 'index']);
 
 
-Route::get('qr-code', function () 
-{	
-  	$file = asset('resources/img/qr/qrimage.svg');
-	
-	$qr = QRCode::text('QR Code Generator for Laravel!')->svg(); 
-	save($qr, $file);   
-
-});
-
 
 Route::get('instructions', [InstructionsController::class, 'index'])->name('instructions');
 
