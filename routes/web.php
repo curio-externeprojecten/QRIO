@@ -21,15 +21,21 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [MainController::class, 'index']);
 
+Route::middleware(['auth:sanctum'])->group(function() {
 
+    Route::get('instructions/image/create/{id}', [InstructionImagesController::class, 'create'])->name('instructions.images.create');
+    Route::post('instructions/image/create/{id}', [InstructionImagesController::class, 'store'])->name('instructions.images.store');
+
+    Route::get('instructions/create', [InstructionsController::class, 'create'])->name('instructions.create');
+    Route::post('instructions/create', [InstructionsController::class, 'store'])->name('instructions.store');
+
+
+});
 
 Route::get('instructions', [InstructionsController::class, 'index'])->name('instructions');
 
-Route::get('instructions/image/create/{id}', [InstructionImagesController::class, 'create'])->name('instructions.images.create');
-Route::post('instructions/image/create/{id}', [InstructionImagesController::class, 'store'])->name('instructions.images.store');
 
-Route::get('instructions/create', [InstructionsController::class, 'create'])->name('instructions.create');
-Route::post('instructions/create', [InstructionsController::class, 'store'])->name('instructions.store');
+
 
 Route::get('instructions/qr/{id}', [InstructionsController::class, 'qr'])->name('instructions.show.qr');
 Route::get('instructions/{id}', [InstructionsController::class, 'show'])->name('instructions.show');
