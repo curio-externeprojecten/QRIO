@@ -2,7 +2,9 @@
 
 @section('content')
     <h1>Instructies</h1>
+    @if (null !== Auth::id())
     <a href="{{ route('instructions.create') }}" class="btn btn-primary" style="margin-bottom:10px;">Nieuwe instructie</a>
+    @endif
     <ul class="list-group">
         @foreach ($instructions as $instruction)
             <li class="list-group-item">
@@ -15,7 +17,7 @@
                 <a href="{{route('instructions.show.qr', $instruction->id)}}" style="margin:0 10px;">
                 <?php
                     $route = route('instructions.show', $instruction->id);
-                    $qr = QRCode::text($route,'public/resources/img/qr/test.png')->svg();
+                    $qr = QRCode::text($route)->svg();
                 ?>
                 </a>
             </li>

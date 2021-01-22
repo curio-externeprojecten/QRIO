@@ -17,7 +17,7 @@
     <h1>{{$instruction->title}}</h1>
     <?php
     $route = route('instructions.show', $instruction->id);
-    $qr = QRCode::text($route,'public/resources/img/qr/test.png')->svg();
+    $qr = QRCode::text($route)->svg();
     ?>
 </body>
 </html>
