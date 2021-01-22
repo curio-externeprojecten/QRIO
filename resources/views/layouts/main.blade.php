@@ -13,7 +13,7 @@
     <header class="row p-4 bg-dark text-light d-flex justify-content-around">
         <div class="logo_banner_index">
             <div class="align-middle">
-                <a href="http://qrio.test">
+                <a href="http://127.0.0.1:8000/">
                     <img src="{{asset('resources/img/QRlogo.png')}}" alt="logo" width="125">
                 </a>
             </div>
